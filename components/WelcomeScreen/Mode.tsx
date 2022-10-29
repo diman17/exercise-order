@@ -1,9 +1,19 @@
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { Fieldset } from "./elements/Fieldset";
 import { InputRadio } from "./elements/InputRadio";
 
-const Mode = () => {
+type ModeProps = {
+    setMode: Dispatch<SetStateAction<string>>;
+};
+
+const Mode = ({ setMode }: ModeProps) => {
+    const onModeChange = (event: ChangeEvent<unknown>) => {
+        const target = event.target as HTMLInputElement;
+        setMode(target.value);
+    };
+
     return (
-        <Fieldset>
+        <Fieldset onChange={onModeChange}>
             <legend className="visually-hidden">Mode</legend>
             <InputRadio type="radio" id="asc" name="mode" value="asc" defaultChecked />
             <label htmlFor="asc">По возрастанию</label>
