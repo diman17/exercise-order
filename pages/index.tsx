@@ -1,4 +1,5 @@
 import Head from "next/head";
+import WelcomeScreen from "../components/WelcomeScreen";
 
 const Home = () => {
     return (
@@ -7,7 +8,7 @@ const Home = () => {
                 <title>Exercise Order</title>
                 <link rel="icon" href="/favicon.svg" />
             </Head>
-            <div>Start page</div>
+            <WelcomeScreen />
         </>
     );
 };
