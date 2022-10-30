@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { EXERCISE_BACKGROUNDS } from "../../styles/constants";
+import { generateRandomInteger } from "../../utils";
 
 type MainState = {
     quantity: string;
@@ -6,6 +8,7 @@ type MainState = {
     mode: string;
     isExerciseStart: boolean;
     items: string[];
+    theme: number;
 };
 
 const initialState: MainState = {
@@ -14,6 +17,7 @@ const initialState: MainState = {
     mode: "asc",
     isExerciseStart: false,
     items: [],
+    theme: 0,
 };
 
 export const mainSlice = createSlice({
@@ -35,9 +39,18 @@ export const mainSlice = createSlice({
         setItems: (state, action: PayloadAction<string[]>) => {
             state.items = action.payload;
         },
+        setTheme: (state) => {
+            state.theme = generateRandomInteger(0, EXERCISE_BACKGROUNDS.length - 1);
+        },
     },
 });
 
-export const { setQuantityInStore, setValuesInStore, setModeInStore, startExercise, setItems } =
-    mainSlice.actions;
+export const {
+    setQuantityInStore,
+    setValuesInStore,
+    setModeInStore,
+    startExercise,
+    setItems,
+    setTheme,
+} = mainSlice.actions;
 export default mainSlice.reducer;

@@ -1,15 +1,15 @@
 import { ALPHABET_RU, VALUES_SCALE } from "../constants";
 
-const generateRandomLetter = (alphabet: string) => {
+export const generateRandomLetter = (alphabet: string) => {
     return alphabet[Math.floor(Math.random() * alphabet.length)];
 };
 
-const generateRandomInteger = (min: number, max: number) =>
+export const generateRandomInteger = (min: number, max: number) =>
     Math.floor(min + Math.random() * (max + 1 - min));
 
 export const createItems = (quantity: string, values: string) => {
     const set = new Set<string>();
-    
+
     while (set.size !== +quantity) {
         switch (values) {
             case VALUES_SCALE.A:

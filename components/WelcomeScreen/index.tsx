@@ -11,6 +11,7 @@ import {
     setItems,
     setModeInStore,
     setQuantityInStore,
+    setTheme,
     setValuesInStore,
     startExercise,
 } from "../../store/slices/main";
@@ -33,6 +34,7 @@ const WelcomeScreen = () => {
         dispatch(setModeInStore(mode));
         dispatch(setItems(createItems(quantity, values)));
         dispatch(startExercise());
+        dispatch(setTheme());
     };
 
     return (

@@ -1,3 +1,5 @@
+import { COLORS } from "./constants";
+
 export default `
 @font-face {
     font-family: "Calibri";
@@ -39,11 +41,18 @@ export default `
 }
 
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     margin: 0;
+    padding-top: 50px;
 
     font-family: Calibri;
     line-height: 1.275;
     font-weight: 400;
+
+    background-color: ${COLORS.wildSand}
 }
 
 .visually-hidden {

@@ -1,7 +1,7 @@
 export const QUANTITY_SCALE = [2, 3, 4, 5];
 
 export const VALUES_SCALE = {
-    A: "A",
+    A: "А",
     "9": "9",
     "19": "19",
     "50": "50",
