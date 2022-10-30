@@ -65,7 +65,12 @@ const Settings = ({ quantity, setQuantity, values, setValues }: SettingsProps) =
                     name="values"
                     min={1}
                     max={Object.values(VALUES_SCALE).length}
-                    defaultValue={values}
+                    defaultValue={
+                        Object.values(VALUES_SCALE)
+                            .sort((a, b) => +b - +a)
+                            .reverse()
+                            .indexOf(values) + 1
+                    }
                 />
             </InputContainer>
         </Fieldset>

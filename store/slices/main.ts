@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { EXERCISE_BACKGROUNDS } from "../../styles/constants";
+import { EXERCISE_THEMES } from "../../styles/constants";
 import { generateRandomInteger } from "../../utils";
 
 type MainState = {
@@ -40,7 +40,7 @@ export const mainSlice = createSlice({
             state.items = action.payload;
         },
         setTheme: (state) => {
-            state.theme = generateRandomInteger(0, EXERCISE_BACKGROUNDS.length - 1);
+            state.theme = generateRandomInteger(0, EXERCISE_THEMES.length - 1);
         },
     },
 });
