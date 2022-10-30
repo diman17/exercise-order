@@ -9,11 +9,12 @@ export const Container = styled("div")<ContainerProps>`
     position: relative;
 
     display: flex;
-    flex-diraction: column;
-    justify-content: center;
+    flex-direction: column;
 
     width: 980px;
     height: 810px;
+
+    padding: 30px 45px;
 
     ${(props) => EXERCISE_THEMES[props.exerciseTheme].background};
 

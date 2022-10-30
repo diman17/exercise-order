@@ -8,7 +8,6 @@ type ItemProps = {
 
 export const Item = styled("li")<ItemProps>`
     position: relative;
-    z-index: 1;
 
     display: flex;
     justify-content: center;

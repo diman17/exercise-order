@@ -20,6 +20,7 @@ export const EXERCISE_THEMES = [
             "/themes/1/cake-3.svg",
             "/themes/1/cake-4.svg",
         ],
+        board: "/themes/1/board.svg",
         background: `
                     background-color: ${COLORS.cameo};
                     background-image: url('themes/1/bg-cake.svg'), url('themes/1/bg-cake.svg');
@@ -29,6 +30,7 @@ export const EXERCISE_THEMES = [
     },
     {
         itemImages: ["/themes/2/coin-1.svg", "/themes/2/coin-2.svg", "/themes/2/coin-3.svg"],
+        board: "/themes/2/board.svg",
         background: `
                     background-color: ${COLORS.lividBrown};
                     background-image: url('themes/2/bg-coin-1.svg'), url('themes/2/bg-coin-2.svg');
@@ -43,6 +45,7 @@ export const EXERCISE_THEMES = [
             "/themes/3/toy-3.svg",
             "/themes/3/toy-4.svg",
         ],
+        board: "/themes/3/board.svg",
         background: `
                     background-color: ${COLORS.bigStone};
                     background-image: url('themes/3/bg-tree.svg'), url('themes/3/bg-tree.svg');
@@ -78,6 +81,7 @@ export const EXERCISE_THEMES = [
     },
     {
         itemImages: ["/themes/4/flower-1.svg", "/themes/4/flower-2.svg", "/themes/4/flower-3.svg"],
+        board: "/themes/4/board.svg",
         background: `
                     background-color: ${COLORS.outerSpace};
                 
