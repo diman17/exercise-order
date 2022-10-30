@@ -97,16 +97,16 @@ export const EXERCISE_THEMES = [
                 
                         background-image: url('themes/4/bg-leafs.svg');
                         background-repeat: no-repeat;
-                        background-position: 0 0;
+                        background-position: -190px 0;
                     }
                     &::before {
-                        left: -330px;
+                        left: -530px;
                 
                         transform: scaleX(-1);
                     }
                 
                     &::after {
-                        right: -300px;
+                        right: -500px;
                     }
                     `,
     },
@@ -426,10 +426,11 @@ const flowerLayout = {
         }
 
         & > li:nth-of-type(3)::before {
-            top: 65px;
-            left: 10px;
+            top: 150px;
+            left: -5px;
 
             background-image: url('/themes/4/stalk-3.svg');
+            background-position: 50% 0;
 
             transform: rotate(10deg);
         }

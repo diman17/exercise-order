@@ -1,20 +1,12 @@
 import styled from "@emotion/styled";
-import { COLORS, EXERCISE_THEMES } from "../../../styles/constants";
-import { generateRandomInteger } from "../../../utils";
+import { COLORS } from "../../../styles/constants";
 
 type ItemProps = {
-    exerciseTheme: number;
+    bgImage: string;
 };
 
 export const Item = styled("li")<ItemProps>`
     position: relative;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 180px;
-    height: 180px;
 
     margin: 0;
     padding: 0;
@@ -27,12 +19,22 @@ export const Item = styled("li")<ItemProps>`
         0 -3px ${COLORS.ebonyClay}, 2px 2px ${COLORS.ebonyClay}, -2px -2px ${COLORS.ebonyClay},
         2px -2px ${COLORS.ebonyClay}, -2px 2px ${COLORS.ebonyClay};
 
-    background-image: url(${(props) =>
-        EXERCISE_THEMES[props.exerciseTheme].itemImages[
-            generateRandomInteger(0, EXERCISE_THEMES[props.exerciseTheme].itemImages.length - 1)
-        ]});
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-
     list-style-type: none;
+
+    & > span {
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 180px;
+        height: 180px;
+
+        background-image: url(${(props) => props.bgImage});
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+
+        cursor: grab;
+    }
 `;

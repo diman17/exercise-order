@@ -3,6 +3,7 @@ import { EXERCISE_THEMES } from "../../../styles/constants";
 
 type BoardProps = {
     exerciseTheme: number;
+    mode: string;
 };
 
 export const Board = styled("div")<BoardProps>`
@@ -21,4 +22,24 @@ export const Board = styled("div")<BoardProps>`
     background-position: 50% 50%;
 
     overflow: hidden;
+
+    & > div {
+        display: flex;
+        align-items: center;
+        flex-direction: ${(props) => (props.mode === "asc" ? "row" : "row-reverse")};
+
+        padding: 20px 35px;
+
+        width: 100%;
+        height: 100%;
+    }
+
+    & > div > li > span {
+        width: 120px;
+        height: 120px;
+
+        margin-right: 15px;
+
+        background-size: cover;
+    }
 `;
