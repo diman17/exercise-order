@@ -42,7 +42,7 @@ const ExerciseScreen = () => {
                     <span>{mode === "asc" ? "По возрастанию" : "По убыванию"}</span>
                 </Arrow>
                 <Board exerciseTheme={theme} mode={mode}>
-                    <DropArea />
+                    <DropArea items={items} mode={mode} />
                 </Board>
             </DndProvider>
         </Container>
