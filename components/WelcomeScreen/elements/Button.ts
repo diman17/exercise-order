@@ -15,4 +15,14 @@ export const Button = styled.button`
     border: none;
 
     cursor: pointer;
+
+    transition: all 200ms ease-out;
+
+    &:hover {
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    &:active {
+        box-shadow: inset 1px 1px 5px -1px;
+    }
 `;
