@@ -10,6 +10,8 @@ export const COLORS = {
     outerSpace: "#2d3539",
     wildSand: "#f5f5f5",
     ebonyClay: "#242546",
+    royalPurple: "#5f40a1",
+    harlequin: "#2bd600",
 };
 
 export const EXERCISE_THEMES = [

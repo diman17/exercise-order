@@ -7,6 +7,7 @@ type MainState = {
     values: string;
     mode: string;
     isExerciseStart: boolean;
+    isExerciseFinish: boolean;
     items: string[];
     theme: number;
 };
@@ -16,6 +17,7 @@ const initialState: MainState = {
     values: "А",
     mode: "asc",
     isExerciseStart: false,
+    isExerciseFinish: false,
     items: [],
     theme: 0,
 };
@@ -36,6 +38,9 @@ export const mainSlice = createSlice({
         startExercise: (state) => {
             state.isExerciseStart = true;
         },
+        finishExercise: (state) => {
+            state.isExerciseFinish = true;
+        },
         setItems: (state, action: PayloadAction<string[]>) => {
             state.items = action.payload;
         },
@@ -50,6 +55,7 @@ export const {
     setValuesInStore,
     setModeInStore,
     startExercise,
+    finishExercise,
     setItems,
     setTheme,
 } = mainSlice.actions;
