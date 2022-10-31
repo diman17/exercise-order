@@ -1,14 +1,10 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 5;
+type ContainerProps = {
+    isModalShown: boolean;
+};
 
-    width: 660px;
-    height: 520px;
-
+export const Container = styled("div")<ContainerProps>`
     padding: 20px;
 
     background: linear-gradient(
@@ -23,7 +19,13 @@ export const Container = styled.div`
 
     border-radius: 40px;
 
-    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    transform: ${(props) =>
+        props.isModalShown ? "translateZ(0px) rotateX(0deg)" : "translateZ(600px) rotateX(20deg)"};
+
+    transition: all 0.3s ease-in;
+
+    opacity: ${(props) => (props.isModalShown ? "1" : "0")};
 
     &::before,
     &::after {

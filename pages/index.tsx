@@ -9,7 +9,6 @@ import { useAppSelector } from "../hooks/useAppSelector";
 
 const Home = () => {
     const isExerciseStarted = useAppSelector((state) => state.main.isExerciseStarted);
-    const isModalShown = useAppSelector((state) => state.main.isModalShown);
 
     const renderScreen = () => {
         if (isExerciseStarted) {
@@ -27,12 +26,8 @@ const Home = () => {
             <Container>
                 <ButtonSound />
                 {renderScreen()}
-                {isModalShown && (
-                    <>
-                        <WinModal />
-                        <Overlay />
-                    </>
-                )}
+                <WinModal />
+                <Overlay />
             </Container>
         </>
     );
