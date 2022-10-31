@@ -1,5 +1,6 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from "react";
 import { QUANTITY_SCALE, VALUES_SCALE } from "../../constants";
+import { useAppSelector } from "../../hooks/useAppSelector";
 import { Fieldset } from "./elements/Fieldset";
 import { InputContainer } from "./elements/InputContainer";
 import { InputRange } from "./elements/InputRange";
@@ -14,8 +15,26 @@ type SettingsProps = {
 };
 
 const Settings = ({ quantity, setQuantity, values, setValues }: SettingsProps) => {
+    const [audio, setAuduo] = useState<HTMLAudioElement>();
+
+    const isSoundOn = useAppSelector((state) => state.main.isSoundOn);
+
+    useEffect(() => {
+        setAuduo(new Audio("/sounds/beep.mp3"));
+    }, []);
+
+    const playSound = () => {
+        if (audio) {
+            if (isSoundOn) {
+                audio.currentTime = 0;
+                audio.play();
+            }
+        }
+    };
+
     const onQuantityChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
         setQuantity(value);
+        playSound();
     };
 
     const onValuesChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
@@ -26,6 +45,7 @@ const Settings = ({ quantity, setQuantity, values, setValues }: SettingsProps) =
                     .reverse()[+value - 1]
             }`
         );
+        playSound();
     };
 
     return (

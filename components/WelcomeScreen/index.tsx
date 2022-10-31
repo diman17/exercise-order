@@ -4,7 +4,7 @@ import { Button } from "./elements/Button";
 import { Container } from "./elements/Container";
 import { Form } from "./elements/Form";
 import { Wrapper } from "./elements/Wrapper";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import {
@@ -23,10 +23,25 @@ const WelcomeScreen = () => {
     const initialQuantity = useAppSelector((state) => state.main.quantity);
     const initialValues = useAppSelector((state) => state.main.values);
     const initialMode = useAppSelector((state) => state.main.mode);
+    const isSoundOn = useAppSelector((state) => state.main.isSoundOn);
 
     const [quantity, setQuantity] = useState(initialQuantity);
     const [values, setValues] = useState(initialValues);
     const [mode, setMode] = useState(initialMode);
+    const [audio, setAuduo] = useState<HTMLAudioElement>();
+
+    useEffect(() => {
+        setAuduo(new Audio("/sounds/beep.mp3"));
+    }, []);
+
+    const playSound = () => {
+        if (audio) {
+            if (isSoundOn) {
+                audio.currentTime = 0;
+                audio.play();
+            }
+        }
+    };
 
     const onButtonClick = () => {
         dispatch(setQuantityInStore(quantity));
@@ -35,6 +50,7 @@ const WelcomeScreen = () => {
         dispatch(setItems(createItems(quantity, values)));
         dispatch(startExercise());
         dispatch(setTheme());
+        playSound();
     };
 
     return (

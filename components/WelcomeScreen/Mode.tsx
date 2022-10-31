@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { Fieldset } from "./elements/Fieldset";
 import { InputRadio } from "./elements/InputRadio";
@@ -9,10 +9,27 @@ type ModeProps = {
 
 const Mode = ({ setMode }: ModeProps) => {
     const mode = useAppSelector((state) => state.main.mode);
+    const isSoundOn = useAppSelector((state) => state.main.isSoundOn);
+
+    const [audio, setAuduo] = useState<HTMLAudioElement>();
+
+    useEffect(() => {
+        setAuduo(new Audio("/sounds/beep.mp3"));
+    }, []);
+
+    const playSound = () => {
+        if (audio) {
+            if (isSoundOn) {
+                audio.currentTime = 0;
+                audio.play();
+            }
+        }
+    };
 
     const onModeChange = (event: ChangeEvent<unknown>) => {
         const target = event.target as HTMLInputElement;
         setMode(target.value);
+        playSound();
     };
 
     return (

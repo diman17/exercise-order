@@ -1,6 +1,8 @@
 import Head from "next/head";
+import ButtonSound from "../components/ButtonSound";
 import ExerciseScreen from "../components/ExerciseScreen";
 import Overlay from "../components/Overlay";
+import { Container } from "../components/PageWrapper/elements/Container";
 import WelcomeScreen from "../components/WelcomeScreen";
 import WinModal from "../components/WinModal";
 import { useAppSelector } from "../hooks/useAppSelector";
@@ -22,13 +24,16 @@ const Home = () => {
                 <title>Exercise Order</title>
                 <link rel="icon" href="/favicon.svg" />
             </Head>
-            {renderScreen()}
-            {isModalShown && (
-                <>
-                    <WinModal />
-                    <Overlay />
-                </>
-            )}
+            <Container>
+                <ButtonSound />
+                {renderScreen()}
+                {isModalShown && (
+                    <>
+                        <WinModal />
+                        <Overlay />
+                    </>
+                )}
+            </Container>
         </>
     );
 };

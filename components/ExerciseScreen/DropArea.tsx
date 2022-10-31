@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDrop } from "react-dnd";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
+import { useAppSelector } from "../../hooks/useAppSelector";
 import { showModal } from "../../store/slices/main";
 import { Item } from "./elements/Item";
 
@@ -16,8 +17,25 @@ type DropAreaProps = {
 
 const DropArea = ({ items, mode }: DropAreaProps) => {
     const [board, setBoard] = useState<Item[]>([]);
+    const [audioCorrect, setAudioCorrect] = useState<HTMLAudioElement>();
+    const [audioWrong, setAudioWrong] = useState<HTMLAudioElement>();
+    const [audioVictory, setAudioVictory] = useState<HTMLAudioElement>();
 
     const dispatch = useAppDispatch();
+    const isSoundOn = useAppSelector((state) => state.main.isSoundOn);
+
+    useEffect(() => {
+        setAudioCorrect(new Audio("/sounds/correct.mp3"));
+        setAudioWrong(new Audio("/sounds/wrong.mp3"));
+        setAudioVictory(new Audio("/sounds/victory.mp3"));
+    }, []);
+
+    const playSound = (audio: HTMLAudioElement) => {
+        if (isSoundOn) {
+            audio.currentTime = 0;
+            audio.play();
+        }
+    };
 
     const [, drop] = useDrop(
         () => ({
@@ -27,24 +45,27 @@ const DropArea = ({ items, mode }: DropAreaProps) => {
 
                 let sortBoard = [""];
 
-                if (mode === "asc") {
-                    sortBoard = [...items].sort();
-                }
-                if (mode === "desc") {
-                    sortBoard = [...items].sort().reverse();
-                }
+                if (mode === "asc") sortBoard = [...items].sort();
+
+                if (mode === "desc") sortBoard = [...items].sort().reverse();
 
                 if (item.value === sortBoard[updateBoard.length]) {
                     updateBoard.push(item);
                     setBoard(updateBoard);
+                    if (audioCorrect) playSound(audioCorrect);
+                } else {
+                    if (audioWrong) playSound(audioWrong);
                 }
 
                 if (items.length === updateBoard.length) {
-                    dispatch(showModal());
+                    setTimeout(() => {
+                        dispatch(showModal());
+                        if (audioVictory) playSound(audioVictory);
+                    }, 700);
                 }
             },
         }),
-        [board]
+        [board, audioWrong, audioCorrect, isSoundOn]
     );
 
     return (

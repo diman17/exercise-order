@@ -10,6 +10,7 @@ type MainState = {
     items: string[];
     theme: number;
     isModalShown: boolean;
+    isSoundOn: boolean;
 };
 
 const initialState: MainState = {
@@ -20,6 +21,7 @@ const initialState: MainState = {
     items: [],
     theme: 0,
     isModalShown: false,
+    isSoundOn: false,
 };
 
 export const mainSlice = createSlice({
@@ -53,6 +55,12 @@ export const mainSlice = createSlice({
         hideModal: (state) => {
             state.isModalShown = false;
         },
+        turnOnSound: (state) => {
+            state.isSoundOn = true;
+        },
+        turnOffSound: (state) => {
+            state.isSoundOn = false;
+        },
     },
 });
 
@@ -66,5 +74,7 @@ export const {
     setTheme,
     showModal,
     hideModal,
+    turnOnSound,
+    turnOffSound,
 } = mainSlice.actions;
 export default mainSlice.reducer;
