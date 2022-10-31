@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDrop } from "react-dnd";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
-import { finishExercise } from "../../store/slices/main";
+import { showModal } from "../../store/slices/main";
 import { Item } from "./elements/Item";
 
 type Item = {
@@ -17,7 +17,7 @@ type DropAreaProps = {
 const DropArea = ({ items, mode }: DropAreaProps) => {
     const [board, setBoard] = useState<Item[]>([]);
 
-    const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch();
 
     const [, drop] = useDrop(
         () => ({
@@ -40,7 +40,7 @@ const DropArea = ({ items, mode }: DropAreaProps) => {
                 }
 
                 if (items.length === updateBoard.length) {
-                    dispatch(finishExercise())
+                    dispatch(showModal());
                 }
             },
         }),

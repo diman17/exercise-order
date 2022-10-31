@@ -6,20 +6,20 @@ type MainState = {
     quantity: string;
     values: string;
     mode: string;
-    isExerciseStart: boolean;
-    isExerciseFinish: boolean;
+    isExerciseStarted: boolean;
     items: string[];
     theme: number;
+    isModalShown: boolean;
 };
 
 const initialState: MainState = {
     quantity: "2",
     values: "А",
     mode: "asc",
-    isExerciseStart: false,
-    isExerciseFinish: false,
+    isExerciseStarted: false,
     items: [],
     theme: 0,
+    isModalShown: false,
 };
 
 export const mainSlice = createSlice({
@@ -36,16 +36,22 @@ export const mainSlice = createSlice({
             state.mode = action.payload;
         },
         startExercise: (state) => {
-            state.isExerciseStart = true;
+            state.isExerciseStarted = true;
         },
         finishExercise: (state) => {
-            state.isExerciseFinish = true;
+            state.isExerciseStarted = false;
         },
         setItems: (state, action: PayloadAction<string[]>) => {
             state.items = action.payload;
         },
         setTheme: (state) => {
             state.theme = generateRandomInteger(0, EXERCISE_THEMES.length - 1);
+        },
+        showModal: (state) => {
+            state.isModalShown = true;
+        },
+        hideModal: (state) => {
+            state.isModalShown = false;
         },
     },
 });
@@ -58,5 +64,7 @@ export const {
     finishExercise,
     setItems,
     setTheme,
+    showModal,
+    hideModal,
 } = mainSlice.actions;
 export default mainSlice.reducer;

@@ -6,11 +6,11 @@ import WinModal from "../components/WinModal";
 import { useAppSelector } from "../hooks/useAppSelector";
 
 const Home = () => {
-    const isExerciseStart = useAppSelector((state) => state.main.isExerciseStart);
-    const isExerciseFinish = useAppSelector((state) => state.main.isExerciseFinish);
+    const isExerciseStarted = useAppSelector((state) => state.main.isExerciseStarted);
+    const isModalShown = useAppSelector((state) => state.main.isModalShown);
 
     const renderScreen = () => {
-        if (isExerciseStart) {
+        if (isExerciseStarted) {
             return <ExerciseScreen />;
         } else {
             return <WelcomeScreen />;
@@ -23,7 +23,7 @@ const Home = () => {
                 <link rel="icon" href="/favicon.svg" />
             </Head>
             {renderScreen()}
-            {isExerciseFinish && (
+            {isModalShown && (
                 <>
                     <WinModal />
                     <Overlay />
