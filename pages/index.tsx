@@ -2,7 +2,7 @@ import Head from "next/head";
 import ButtonSound from "../components/ButtonSound";
 import ExerciseScreen from "../components/ExerciseScreen";
 import Overlay from "../components/Overlay";
-import { Container } from "../components/PageWrapper/elements/Container";
+import PageWrapper from "../components/PageWrapper";
 import WelcomeScreen from "../components/WelcomeScreen";
 import WinModal from "../components/WinModal";
 import { useAppSelector } from "../hooks/useAppSelector";
@@ -22,13 +22,14 @@ const Home = () => {
             <Head>
                 <title>Exercise Order</title>
                 <link rel="icon" href="/favicon.svg" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
-            <Container>
+            <PageWrapper>
                 <ButtonSound />
                 {renderScreen()}
                 <WinModal />
                 <Overlay />
-            </Container>
+            </PageWrapper>
         </>
     );
 };

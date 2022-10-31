@@ -69,7 +69,7 @@ const DropArea = ({ items, mode }: DropAreaProps) => {
     );
 
     return (
-        <div ref={drop}>
+        <ul ref={drop}>
             {board.map((item, i) => {
                 return (
                     <Item key={i} bgImage={item.bgImage}>
@@ -77,7 +77,7 @@ const DropArea = ({ items, mode }: DropAreaProps) => {
                     </Item>
                 );
             })}
-        </div>
+        </ul>
     );
 };
 

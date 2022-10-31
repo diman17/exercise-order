@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { COLORS } from "../../../styles/constants";
 
 export const Container = styled.div`
     display: flex;
@@ -12,4 +13,7 @@ export const Container = styled.div`
 
     background-image: url("/bg-welcome.jpg");
     background-size: cover;
+
+    border-radius: 50px;
+    box-shadow: 0 0 15px 5px ${COLORS.shipGray};
 `;

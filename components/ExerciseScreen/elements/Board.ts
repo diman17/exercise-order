@@ -23,23 +23,29 @@ export const Board = styled("div")<BoardProps>`
 
     overflow: hidden;
 
-    & > div {
+    & > ul {
         display: flex;
         align-items: center;
         flex-direction: ${(props) => (props.mode === "asc" ? "row" : "row-reverse")};
 
-        padding: 20px 35px;
+        padding: 20px 40px;
+        margin: 0;
 
         width: 100%;
         height: 100%;
     }
 
-    & > div > li > span {
+    & > ul > li {
+        display: flex;
+        justify-content: center;
+
+        width: 136px;
+    }
+
+    & > ul > li > span {
         width: 120px;
         height: 120px;
 
-        margin-right: 15px;
-
-        background-size: cover;
+        background-size: contain;
     }
 `;

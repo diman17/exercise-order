@@ -17,40 +17,40 @@ export const COLORS = {
 export const EXERCISE_THEMES = [
     {
         itemImages: [
-            "/themes/1/cake-1.svg",
-            "/themes/1/cake-2.svg",
-            "/themes/1/cake-3.svg",
-            "/themes/1/cake-4.svg",
+            "/themes/0/cake-1.svg",
+            "/themes/0/cake-2.svg",
+            "/themes/0/cake-3.svg",
+            "/themes/0/cake-4.svg",
         ],
-        board: "/themes/1/board.svg",
+        board: "/themes/0/board.svg",
         background: `
                     background-color: ${COLORS.cameo};
-                    background-image: url('themes/1/bg-cake.svg'), url('themes/1/bg-cake.svg');
+                    background-image: url('themes/0/bg-cake.svg'), url('themes/0/bg-cake.svg');
                     background-repeat: no-repeat, no-repeat;
                     background-position: -190px -80px,730px -290px;
                     `,
     },
     {
-        itemImages: ["/themes/2/coin-1.svg", "/themes/2/coin-2.svg", "/themes/2/coin-3.svg"],
-        board: "/themes/2/board.svg",
+        itemImages: ["/themes/1/coin-1.svg", "/themes/1/coin-2.svg", "/themes/1/coin-3.svg"],
+        board: "/themes/1/board.svg",
         background: `
                     background-color: ${COLORS.lividBrown};
-                    background-image: url('themes/2/bg-coin-1.svg'), url('themes/2/bg-coin-2.svg');
+                    background-image: url('themes/1/bg-coin-1.svg'), url('themes/1/bg-coin-2.svg');
                     background-repeat: no-repeat, no-repeat;
                     background-position: -140px 5px,790px -20px;
                     `,
     },
     {
         itemImages: [
-            "/themes/3/toy-1.svg",
-            "/themes/3/toy-2.svg",
-            "/themes/3/toy-3.svg",
-            "/themes/3/toy-4.svg",
+            "/themes/2/toy-1.svg",
+            "/themes/2/toy-2.svg",
+            "/themes/2/toy-3.svg",
+            "/themes/2/toy-4.svg",
         ],
-        board: "/themes/3/board.svg",
+        board: "/themes/2/board.svg",
         background: `
                     background-color: ${COLORS.bigStone};
-                    background-image: url('themes/3/bg-tree.svg'), url('themes/3/bg-tree.svg');
+                    background-image: url('themes/2/bg-tree.svg'), url('themes/2/bg-tree.svg');
                     background-repeat: no-repeat, no-repeat;
                     background-position: -210px 160px, 570px 160px;
                     
@@ -64,7 +64,7 @@ export const EXERCISE_THEMES = [
                         width: 987px;
                         height: 240px;
                 
-                        background-image: url('themes/3/bg-garland.svg');
+                        background-image: url('themes/2/bg-garland.svg');
                         background-repeat: no-repeat;
                         background-position: 0 0;
                     }
@@ -82,8 +82,8 @@ export const EXERCISE_THEMES = [
                     `,
     },
     {
-        itemImages: ["/themes/4/flower-1.svg", "/themes/4/flower-2.svg", "/themes/4/flower-3.svg"],
-        board: "/themes/4/board.svg",
+        itemImages: ["/themes/3/flower-1.svg", "/themes/3/flower-2.svg", "/themes/3/flower-3.svg"],
+        board: "/themes/3/board.svg",
         background: `
                     background-color: ${COLORS.outerSpace};
                 
@@ -97,7 +97,7 @@ export const EXERCISE_THEMES = [
                         width: 637px;
                         height: 1292px;
                 
-                        background-image: url('themes/4/bg-leafs.svg');
+                        background-image: url('themes/3/bg-leafs.svg');
                         background-repeat: no-repeat;
                         background-position: -190px 0;
                     }
@@ -222,7 +222,7 @@ const flowerLayout = {
             top: 135px;
             left: -15px;
 
-            background-image: url('/themes/4/stalk-1.svg');
+            background-image: url('/themes/3/stalk-1.svg');
 
             transform: rotate(13deg);
         }
@@ -236,7 +236,7 @@ const flowerLayout = {
             top: 135px;
             left: 80px;
 
-            background-image: url('/themes/4/stalk-1.svg');
+            background-image: url('/themes/3/stalk-1.svg');
 
             transform: rotate(-15deg) scaleX(-1);
         }
@@ -266,7 +266,7 @@ const flowerLayout = {
             top: 135px;
             left: -15px;
 
-            background-image: url('/themes/4/stalk-1.svg');
+            background-image: url('/themes/3/stalk-1.svg');
 
             transform: rotate(13deg);
         }
@@ -281,7 +281,7 @@ const flowerLayout = {
             top: 140px;
             left: 0;
 
-            background-image: url('/themes/4/stalk-1.svg');
+            background-image: url('/themes/3/stalk-1.svg');
 
             transform: rotate(10deg);
         }
@@ -296,7 +296,7 @@ const flowerLayout = {
             top: 135px;
             left: 65px;
 
-            background-image: url('/themes/4/stalk-1.svg');
+            background-image: url('/themes/3/stalk-1.svg');
 
             transform: rotate(-15deg) scaleX(-1);
         }
@@ -326,7 +326,7 @@ const flowerLayout = {
             top: 135px;
             left: -15px;
 
-            background-image: url('/themes/4/stalk-1.svg');
+            background-image: url('/themes/3/stalk-1.svg');
 
             transform: rotate(13deg);
         }
@@ -341,7 +341,7 @@ const flowerLayout = {
             top: 140px;
             left: 0;
 
-            background-image: url('/themes/4/stalk-1.svg');
+            background-image: url('/themes/3/stalk-1.svg');
 
             transform: rotate(10deg);
         }
@@ -356,7 +356,7 @@ const flowerLayout = {
             top: 135px;
             left: 65px;
 
-            background-image: url('/themes/4/stalk-1.svg');
+            background-image: url('/themes/3/stalk-1.svg');
 
             transform: rotate(-15deg) scaleX(-1);
         }
@@ -371,7 +371,7 @@ const flowerLayout = {
             top: 135px;
             left: 80px;
 
-            background-image: url('/themes/4/stalk-1.svg');
+            background-image: url('/themes/3/stalk-1.svg');
 
             transform: rotate(-15deg) scaleX(-1);
         }
@@ -401,7 +401,7 @@ const flowerLayout = {
             top: 110px;
             left: -15px;
 
-            background-image: url('/themes/4/stalk-2.svg');
+            background-image: url('/themes/3/stalk-2.svg');
 
             transform: rotate(22deg);
         }
@@ -416,7 +416,7 @@ const flowerLayout = {
             top: 140px;
             left: 0;
 
-            background-image: url('/themes/4/stalk-1.svg');
+            background-image: url('/themes/3/stalk-1.svg');
 
             transform: rotate(10deg);
         }
@@ -431,7 +431,7 @@ const flowerLayout = {
             top: 150px;
             left: -5px;
 
-            background-image: url('/themes/4/stalk-3.svg');
+            background-image: url('/themes/3/stalk-3.svg');
             background-position: 50% 0;
 
             transform: rotate(10deg);
@@ -447,7 +447,7 @@ const flowerLayout = {
             top: 140px;
             left: 80px;
 
-            background-image: url('/themes/4/stalk-1.svg');
+            background-image: url('/themes/3/stalk-1.svg');
 
             transform: rotate(-17deg) scaleX(-1);
         }
@@ -462,7 +462,7 @@ const flowerLayout = {
             top: 115px;
             left: 50px;
 
-            background-image: url('/themes/4/stalk-2.svg');
+            background-image: url('/themes/3/stalk-2.svg');
 
             transform: rotate(-20deg) scaleX(-1);
         }
