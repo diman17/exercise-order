@@ -45,9 +45,13 @@ const DropArea = ({ items, mode }: DropAreaProps) => {
 
                 let sortBoard = [""];
 
-                if (mode === "asc") sortBoard = [...items].sort();
+                if (mode === "asc")
+                    sortBoard = [...items].sort((a, b) => new Intl.Collator().compare(a, b));
 
-                if (mode === "desc") sortBoard = [...items].sort().reverse();
+                if (mode === "desc")
+                    sortBoard = [...items]
+                        .sort((a, b) => new Intl.Collator().compare(a, b))
+                        .reverse();
 
                 if (item.value === sortBoard[updateBoard.length]) {
                     updateBoard.push(item);
